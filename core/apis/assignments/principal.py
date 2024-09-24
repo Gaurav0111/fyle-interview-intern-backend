@@ -15,7 +15,6 @@ def list_assignments(p):
     """Returns list of assignments"""
     principal_assignments = Assignment.get_assignments_by_principal()
     
-    # Filter out assignments with state 'DRAFT'
     principal_assignments = [
         assignment for assignment in principal_assignments if assignment.state != 'DRAFT'
     ]
