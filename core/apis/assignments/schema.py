@@ -21,6 +21,7 @@ class AssignmentSchema(SQLAlchemyAutoSchema):
 
     @post_load
     def initiate_class(self, data_dict, many, partial):
+        # pylint: disable=unused-argument,no-self-use
         return Assignment(**data_dict)
 
 
@@ -33,6 +34,7 @@ class AssignmentSubmitSchema(Schema):
 
     @post_load
     def initiate_class(self, data_dict, many, partial):
+        # pylint: disable=unused-argument,no-self-use
         return GeneralObject(**data_dict)
 
 
@@ -45,4 +47,5 @@ class AssignmentGradeSchema(Schema):
 
     @post_load
     def initiate_class(self, data_dict, many, partial):
+        # pylint: disable=unused-argument,no-self-use
         return GeneralObject(**data_dict)

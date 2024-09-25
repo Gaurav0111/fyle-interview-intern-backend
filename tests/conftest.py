@@ -1,8 +1,7 @@
 import pytest
 import json
 from tests import app
-from core.models.assignments import AssignmentStateEnum, Assignment
-from core import db
+
 
 @pytest.fixture
 def client():
@@ -62,6 +61,28 @@ def h_principal():
     headers = {
         'X-Principal': json.dumps({
             'principal_id': 1,
+            'user_id': 5
+        })
+    }
+
+    return headers
+
+@pytest.fixture
+def h_unauth_user():
+    headers = {
+        'X-Principal': json.dumps({
+            'principal_id': 1,
+            'user_id': 4
+        })
+    }
+
+    return headers
+
+@pytest.fixture
+def blank_header():
+    headers = {
+        'X-Principal': json.dumps({
+            'principal_id': None,
             'user_id': 5
         })
     }

@@ -1,5 +1,6 @@
--- Write query to get number of graded assignments for each student:
-SELECT student_id, COUNT(*) AS graded_assignments_count
+-- Write query to get number of graded assignments for each student
+SELECT COUNT(state) as count
 FROM assignments
-WHERE grade IS NOT NULL
-GROUP BY student_id;
+WHERE assignments.state = 'GRADED'
+GROUP BY student_id
+ORDER BY count ASC;
